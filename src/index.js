@@ -3,10 +3,6 @@ const imgUrl = 'https://dog.ceo/api/breeds/image/random/4';
 const breedUrl = 'https://dog.ceo/api/breeds/list/all';
 
 function challengeOne() {
-  // fetch(imgUrl)
-  // .then(resp => resp.json())
-  // .then(json => console.log(json));
-
   fetch(imgUrl)
     .then(function(response) {
       return response.json();
@@ -22,7 +18,6 @@ function challengeTwo() {
       return response.json();
     })
     .then(function(response) {
-      // cTwo(response.message);
       cTwo(Object.keys(response.message));
     });
 }
@@ -40,7 +35,6 @@ function cTwo(b) {
     let newImgChild = document.createElement('li');
     newImgChild.innerHTML = element;
     document.getElementById('dog-breeds').appendChild(newImgChild);
-    
   });
 }
 
@@ -48,3 +42,14 @@ window.addEventListener('DOMContentLoaded', function() {
   challengeOne();
   challengeTwo();
 });
+
+window.addEventListener('load', function() {
+  let list = document.querySelectorAll('li');
+  
+
+  list.forEach(function(element) {
+    element.addEventListener('click', function() {
+      console.log('click');
+    });
+  });
+})
